@@ -82,8 +82,8 @@ def balance(listed):
 def subpoints(listing, point):
     spend = point
     less, w, empty = 0, 0, 0
-    t, final  = [], []
-    new_dict = {}
+    py, pt, ts, t, final = [], [], [], [], []
+    new_zip = {}
     recordsort = sorted(listing, key=lambda d: d["timestamp"]) 
     availpoints = sumoflist(recordsort)
     if availpoints < spend:
@@ -101,13 +101,21 @@ def subpoints(listing, point):
                 less = spend * -1
                 w = w - spend
                 f["points"] = w
-                new_dict.update({"payer": f.get("payer"), "points":less, "timestamp":f.get("timestamp")})
-                t.append(new_dict)
+                py.append(f.get("payer"))
+                pt.append(less)
+                ts.append(f.get("timestamp"))
             else:
                 less = w * -1
                 spend = spend - w
                 f["points"] = 0
-                new_dict.update({"payer": f.get("payer"), "points":less, "timestamp":f.get("timestamp")})
-                t.append(new_dict)
-        final = balance(t)
+                py.append(f.get("payer"))
+                pt.append(less)
+                ts.append(f.get("timestamp"))
+        for x in range(len(py)):
+            new_zip["payer"] = py[x]
+            new_zip["points"] = pt[x]
+            new_zip["timestamp"] = ts[x]
+            y = new_zip.copy()
+            t.append(y)
+    final = balance(t)
     return  final
