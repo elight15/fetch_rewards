@@ -101,17 +101,13 @@ def subpoints(listing, point):
                 less = spend * -1
                 w = w - spend
                 f["points"] = w
-                new_dict["payer"] = f.get("payer")
-                new_dict["points"] = less
-                new_dict["timestamp"] = f.get("timestamp")  
+                new_dict.update({"payer": f.get("payer"), "points":less, "timestamp":f.get("timestamp")})
                 t.append(new_dict)
             else:
                 less = w * -1
                 spend = spend - w
                 f["points"] = 0
-                new_dict["payer"] = f.get("payer")
-                new_dict["points"] = less
-                new_dict["timestamp"] = f.get("timestamp") 
+                new_dict.update({"payer": f.get("payer"), "points":less, "timestamp":f.get("timestamp")})
                 t.append(new_dict)
         final = balance(t)
     return  final
