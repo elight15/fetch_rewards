@@ -84,17 +84,17 @@ def balance(listed):
 
 def subpoints(listing, point):
     spend = point
-    less, w = 0, 0
-    t, final = [], []
+    less, w, empty = 0, 0, 0
+    t, final  = [], []
+    new_dict = {}
     recordsort = sorted(listing, key=lambda d: d["timestamp"]) 
     availpoints = sumoflist(recordsort)
     if availpoints < spend:
-        t = balance(recordsort)
         flash('Note that system will process a zero if input greater than available points.', 'success')
-         
+        return empty
     elif spend < 0:
         flash('Note that system will process a zero if input less than 0.', 'success')
-    
+        return empty
     else:
         for z in range(len(recordsort)):
             f = recordsort[z]
@@ -102,13 +102,18 @@ def subpoints(listing, point):
             if w > spend:
                 less = spend * -1
                 w = w - spend
-                f["points"] = less
-                t.append(f)    
+                f["points"] = w
+                new_dict["payer"] = f.get("payer")
+                new_dict["points"] = less
+                new_dict["timestamp"] = f.get("timestamp")  
+                t.append(new_dict)
             else:
                 less = w * -1
                 spend = spend - w
-                f["points"] = less
-                t.append(f)
-                
+                f["points"] = 0
+                new_dict["payer"] = f.get("payer")
+                new_dict["points"] = less
+                new_dict["timestamp"] = f.get("timestamp") 
+                t.append(new_dict)
         final = balance(t)
     return  final
