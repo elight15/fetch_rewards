@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TransactionRecords</title>
+    <link href="{{ url_for('static', filename='reset.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+
+<body>
+    <header>
+        <ul>
+            <li><a class="active" id="main" href="/">Home</a></li>
+            <li><a id="added_transactions" href="/added_transactions">Transactions</a></li>
+            <li><a id="spend" href="/spend">Spend</a></li>
+            <li><a id="balance" href="/balance">Balances</a></li>
+        </ul>
+
+    </header>
+
+    <h2>Added Records</h2>
+    <main>
+        {% for item in data %}
+        <p id="logs"> {{ item }} </p>
+        {% endfor %}
+    </main>
+</body>
+
+</html>

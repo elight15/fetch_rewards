@@ -1,0 +1,86 @@
+body {
+    text-align: center;
+    background: #04213e;
+    background-size: cover;
+    font-family: 'Droid Sans', sans-serif;
+}
+
+h2 {
+    color: white;
+    font-size: 27px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+label {
+    color: white;
+    font-size: 20px;
+}
+
+main {
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#payer {
+    margin-top: 5px;
+}
+
+#ll {
+    margin-top: 20px;
+}
+
+#points {
+    margin-top: 5px;
+}
+
+#lt {
+    margin-top: 20px;
+}
+
+#timer {
+    margin-top: 5px;
+}
+
+#error_area {
+    margin-top: 20px;
+}
+
+#logs {
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+.error {
+    color: white;
+    margin-top: 30px;
+}
+
+.success {
+    color: white;
+    margin-top: 30px;
+}

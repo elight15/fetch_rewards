@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Site Payer</title>
+    <link href="{{ url_for('static', filename='reset.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+
+<body>
+    <header>
+        <ul>
+            <li><a class="active" id="main" href="/">Home</a></li>
+            <li><a id="added_transactions" href="/added_transactions">Transactions</a></li>
+            <li><a id="spend" href="/spend">Spend</a></li>
+            <li><a id="balance" href="/balance">Balances</a></li>
+        </ul>
+
+    </header>
+
+    <h2>Add Payer Record Below</h2>
+    <main>
+        <div class="formal">
+            <form method="POST">
+                <label id="lf" for="payer">Payer:</label><br>
+                <input type="text" id="payer" name="payer"><br>
+                <label id="ll" for="points">Points:</label><br>
+                <input type="text" id="points" name="points"><br><br>
+                <!-- <label id="lt" for="timer">Timer:</label><br>
+                <input type="text" id="timer" name="timer"><br><br> -->
+                <input type="submit" name="submit" value="Submit">
+            </form>
+        </div>
+    </main>
+    <footer>
+        {% with messages = get_flashed_messages(with_categories=true) %} {% for category, message in messages %}
+        <div class="{{ category }}">{{ message }} </div>
+        {% endfor %} {% endwith %}
+
+    </footer>
+</body>
+
+</html>
