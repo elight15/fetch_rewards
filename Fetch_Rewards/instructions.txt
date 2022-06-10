@@ -1,2 +1,32 @@
 Instructions for Webservice:
 
+Disclaimer: This repository is using Python3 and Python "Flask" to display web service 
+so please make sure you have downloaded and installed Python3 and Flask. 
+
+-----------Check Python versions-------------------------------------------------
+Please be mindful that if you have multiple versions of Python and Flask use these 
+commands in your terminal to check- 
+for 2.7 and under "python --version"
+for 3 use "python3 --version"
+for FLASK just use this installation command "pip3 install Flask"
+
+------Program steps---------------------------------------------------------------
+
+1.Download entire "Fetch_Rewards" folder from Github.
+
+2.Open your system terminal.
+
+3.Navigate through your terminal to where you have stored the "Fetch_Rewards" folder/directory.
+Your terminal must be in the folder, and not in the parent directory.
+
+4.Enter "python3 main.py"
+
+5.Copy the "http://127.0.0.1:5000" link and post in your web browser address bar.
+Please note this address was tested through Chrome.
+
+6.Explore
+
+7.When ready to quit web program press "Crtl + C".
+
+Thanks for testing.
+
