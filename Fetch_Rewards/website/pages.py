@@ -1,4 +1,5 @@
 from flask import Blueprint,request,render_template, flash
+from flask import Blueprint,request,render_template, flash
 from datetime import datetime
 import re
 
@@ -7,10 +8,6 @@ pages = Blueprint('pages', __name__)
 values, entire_data = [], [],
 keys = ["payer", "points", "timestamp"]
 spending = 0
-
-'''@pages.route('/', methods=['GET', 'POST'])
-def home():
-    return render_template("main.html")'''
 
 @pages.route('/', methods=['GET', 'POST'])
 def main():
@@ -37,7 +34,7 @@ def main():
 def add_transaction():
     return render_template("added_transactions.html", data=entire_data)
 
-new_data = entire_data
+
 
 @pages.route('/spend', methods=['GET', 'POST'])
 def spend_points():
@@ -47,7 +44,7 @@ def spend_points():
         if spending == '':
             flash('Points can not be empty', 'error')
         else:
-            hold.append(subpoints(new_data, spending))
+            hold.append(subpoints(entire_data, spending))
     return render_template("spend.html", data=hold)
 
 
@@ -91,6 +88,7 @@ def subpoints(listing, point):
     availpoints = sumoflist(recordsort)
     if availpoints < spend:
         flash('Note that system will process a zero if input greater than available points.', 'success')
+        
         return empty
     elif spend < 0:
         flash('Note that system will process a zero if input less than 0.', 'success')
