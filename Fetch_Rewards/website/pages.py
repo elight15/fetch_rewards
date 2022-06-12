@@ -1,6 +1,6 @@
 from flask import Blueprint,request,render_template, flash
 from datetime import datetime
-import re
+
 
 pages = Blueprint('pages', __name__)
 
@@ -103,6 +103,7 @@ def subpoints(listing, point):
                 py.append(f.get("payer"))
                 pt.append(less)
                 ts.append(f.get("timestamp"))
+                spend = 0
             else:
                 less = w * -1
                 spend = spend - w
@@ -118,3 +119,4 @@ def subpoints(listing, point):
             t.append(y)
     final = balance(t)
     return  final
+
