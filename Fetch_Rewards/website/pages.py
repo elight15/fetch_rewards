@@ -86,11 +86,10 @@ def subpoints(listing, point):
     recordsort = sorted(listing, key=lambda d: d["timestamp"]) 
     availpoints = sumoflist(recordsort)
     if availpoints < spend:
-        flash('Note that system will process a zero if input greater than available points.', 'success')
-        
+        flash('Input greater than available points.', 'success')
         return empty
     elif spend < 0:
-        flash('Note that system will process a zero if input less than 0.', 'success')
+        flash('Input less than 0.', 'success')
         return empty
     else:
         for z in range(len(recordsort)):
